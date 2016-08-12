@@ -113,6 +113,7 @@ echo "Bitte warten, bis das Medium ausgeworfen wurde... "
 FAIL=1
 cd /install/migration
 tar xvf $RDX 2>/dev/null || function_exit
+echo ""
 eject $RDX
 echo ""
 
@@ -139,7 +140,7 @@ echo ""
 echo "Schritt 4: Grosse Dateien finden:"
 echo "Suche laeuft..."
 cd mnt/snapshots/daily.0/localhost 
-find . -type f -exec ls -s {} \; | sort -n -r | head -20 >$INFO
+find . -type f -exec ls -s {} \; | sort -n -r | head -20 >$INFO/Dateiliste.txt
 echo "Liste erstellt, bitte anschliessend pruefen!"
 echo ""
 
@@ -148,10 +149,10 @@ echo "Schritt 5: Home Verzeichnisse austauschen:"
 service isamd stop
 [  -d /home/00_Archiv ] && rm -rf /home/00_Archiv 
 mkdir -m 777 /home/00_Archiv
-mv /home/david /home/00_Archiv && echo "Archivieren der Home Verzeichnisse..."
+mv /home/david /home/00_Archiv && echo "Archivieren der vorhandenen Home Verzeichnisse..."
 mv /home/platz* /home/00_Archiv && echo "...erledigt."
-cp -rpf home/david /home && echo "david Home wurde einkopiert."
-cp -rpf home/platz* /home && echo "User Homes wurden einkopiert."
+cp -rpf home/david /home && echo "david Home wurde einkopiert."		#################### ToDo: rsync
+cp -rpf home/platz* /home && echo "User Homes wurden einkopiert."	#################### ToDo: rsync
 echo ""
 
 
