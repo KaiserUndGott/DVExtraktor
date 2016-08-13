@@ -194,7 +194,7 @@ echo "Ende."
 rm -f daily.0.tar
 mv $INFO /home/david/trpword
 chmod -R 777 /home/david/trpword/00_Speedpoint_00
-chown -R david:david /home/david/trpword/00_Speedpoint_00
+chown -R david:users /home/david/trpword/00_Speedpoint_00
 echo ""
 echo "#########################################################################"
 echo ""
@@ -207,8 +207,12 @@ echo ""
 echo "Bitte das Verzeichnis /install/migration leeren, sobald diese Daten nicht"
 echo "mehr benoetigt werden!"
 echo ""
-echo "#########################################################################"
+echo "-------------------------------------------------------------------------"
 echo ""
 echo "Bitte weitere Informationen in trpword/00_Speedpoint_00 beachten!"
+echo ""
+echo "#########################################################################"
+echo ""
+
 
 exit 0
